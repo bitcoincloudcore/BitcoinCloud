@@ -3,7 +3,7 @@ BitcoinCloud Core integration/staging tree
 
 [![Build Status](https://travis-ci.org/bitcoincloud/bitcoincloud.svg?branch=master)](https://travis-ci.org/bitcoincloud/bitcoincloud)
 
-https://bitcoincloudcore.org
+https://bitcoincloud.cash
 
 What is BitcoinCloud?
 ----------------
@@ -14,9 +14,6 @@ with no central authority: managing transactions and issuing money are carried
 out collectively by the network. BitcoinCloud Core is the name of open source
 software which enables the use of this currency.
 
-For more information, as well as an immediately useable, binary version of
-the BitcoinCloud Core software, see https://bitcoincloudcore.org/en/download/, or read the
-[original whitepaper](https://bitcoincloudcore.org/bitcoincloud.pdf).
 
 License
 -------
@@ -28,7 +25,7 @@ Development Process
 -------------------
 
 The `master` branch is regularly built and tested, but is not guaranteed to be
-completely stable. [Tags](https://github.com/bitcoincloud/bitcoincloud/tags) are created
+completely stable. [Tags](https://github.com/bitcoincloudcore/bitcoincloud) are created
 regularly to indicate new official, stable release versions of BitcoinCloud Core.
 
 The contribution workflow is described in [CONTRIBUTING.md](CONTRIBUTING.md).
