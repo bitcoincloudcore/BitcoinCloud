@@ -1,0 +1,67 @@
+#!/usr/bin/env bash
+#
+#  bitcoincloudd The bitcoincloud core server.
+#
+#
+# chkconfig: 345 80 20
+# description: bitcoincloudd
+# processname: bitcoincloudd
+#
+
+# Source function library.
+. /etc/init.d/functions
+
+# you can override defaults in /etc/sysconfig/bitcoincloudd, see below
+if [ -f /etc/sysconfig/bitcoincloudd ]; then
+        . /etc/sysconfig/bitcoincloudd
+fi
+
+RETVAL=0
+
+prog=bitcoincloudd
+# you can override the lockfile via BITCOINCLOUDD_LOCKFILE in /etc/sysconfig/bitcoincloudd
+lockfile=${BITCOINCLOUDD_LOCKFILE-/var/lock/subsys/bitcoincloudd}
+
+# bitcoincloudd defaults to /usr/bin/bitcoincloudd, override with BITCOINCLOUDD_BIN
+bitcoincloudd=${BITCOINCLOUDD_BIN-/usr/bin/bitcoincloudd}
+
+# bitcoincloudd opts default to -disablewallet, override with BITCOINCLOUDD_OPTS
+bitcoincloudd_opts=${BITCOINCLOUDD_OPTS--disablewallet}
+
+start() {
+    echo -n $"Starting $prog: "
+    daemon $DAEMONOPTS $bitcoincloudd $bitcoincloudd_opts
+    RETVAL=$?
+    echo
+    [ $RETVAL -eq 0 ] && touch $lockfile
+    return $RETVAL
+}
+
+stop() {
+    echo -n $"Stopping $prog: "
+    killproc $prog
+    RETVAL=$?
+    echo
+    [ $RETVAL -eq 0 ] && rm -f $lockfile
+    return $RETVAL
+}
+
+case "$1" in
+    start)
+        start
+        ;;
+    stop)
+        stop
+        ;;
+    status)
+        status $prog
+        ;;
+    restart)
+        stop
+        start
+        ;;
+    *)
+        echo "Usage: service $prog {start|stop|status|restart}"
+        exit 1
+        ;;
+esac

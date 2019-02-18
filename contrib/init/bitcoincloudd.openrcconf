@@ -1,0 +1,33 @@
+# /etc/conf.d/bitcoincloudd: config file for /etc/init.d/bitcoincloudd
+
+# Config file location
+#BITCOINCLOUDD_CONFIGFILE="/etc/bitcoincloud/bitcoincloud.conf"
+
+# What directory to write pidfile to?  (created and owned by $BITCOINCLOUDD_USER)
+#BITCOINCLOUDD_PIDDIR="/var/run/bitcoincloudd"
+
+# What filename to give the pidfile
+#BITCOINCLOUDD_PIDFILE="${BITCOINCLOUDD_PIDDIR}/bitcoincloudd.pid"
+
+# Where to write bitcoincloudd data (be mindful that the blockchain is large)
+#BITCOINCLOUDD_DATADIR="/var/lib/bitcoincloudd"
+
+# User and group to own bitcoincloudd process
+#BITCOINCLOUDD_USER="bitcoincloud"
+#BITCOINCLOUDD_GROUP="bitcoincloud"
+
+# Path to bitcoincloudd executable
+#BITCOINCLOUDD_BIN="/usr/bin/bitcoincloudd"
+
+# Nice value to run bitcoincloudd under
+#BITCOINCLOUDD_NICE=0
+
+# Additional options (avoid -conf and -datadir, use flags above)
+#BITCOINCLOUDD_OPTS=""
+
+# The timeout in seconds OpenRC will wait for bitcoincloudd to terminate
+# after a SIGTERM has been raised.
+# Note that this will be mapped as argument to start-stop-daemon's
+# '--retry' option, which means you can specify a retry schedule
+# here. For more information see man 8 start-stop-daemon.
+BITCOINCLOUDD_SIGTERM_TIMEOUT=60
